@@ -28,6 +28,7 @@
                         <th>street</th>
                         <th>Building</th>
                         <th>Phone</th>
+                        <th>Option</th>
                     </thead>
 
                     <tbody>
@@ -41,6 +42,7 @@
                             <td>{{place.street}}</td>
                             <td>{{place.buildingName}} no. {{place.buildingNumber}}</td>
                             <td>{{place.phone}}</td>
+                            <td><button ng-click="removeItem(place)"><small>(remove)</small></button></td>
 
                         </tr>
                     </tbody>
