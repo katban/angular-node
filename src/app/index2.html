@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Workshop">
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="style/css/bootstrap.css" />
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+
+    <!-- App module -->
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+
+<div class="container" ng-controller="PeopleController">
+    <div class="header clearfix text-center">
+        <h1 class="text-muted">Exercise People List</h1>
+    </div>
+
+    <div class="row">
+        <div class="col col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">People List</div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th ng-click="reorder('Name')">Imie</th>
+                                <th ng-click="reorder('City')">Miasto</th>
+                                <th ng-click="reorder('Country')">Kraj</th>
+                                <th>Present</th>
+                            </tr>
+                            <tr>
+                                <th><input ng-model="filterValue.Name"></th>
+                                <th><input ng-model="filterValue.City"></th>
+                                <th><input ng-model="filterValue.Country"></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="person in peopleList | filter:filterValue | orderBy:sortingField:desc">
+                                <td>
+                                    <span ng-click="kill(person)">(Kill his!) </span>
+                                    {{person.Name}}
+
+                                </td>
+                                <td>{{person.City}}</td>
+                                <td>{{person.Country}}</td>
+                                <td ng-if="presentColumnVisibility"><input type="checkbox" ng-model="person.Present"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col col-xs-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">People List</div>
+                <div class="panel-body">
+                    <div class="col col-xs-12">
+                        <div class="panel panel-default col col-xs-6">
+                            <div class="panel-heading">Add People</div>
+                            <div class="panel-body">
+                                <label>Name</label>
+                                <input type="text" ng-model="newPerson.Name"><br />
+
+                                <label>City</label>
+                                <input type="text" ng-model="newPerson.City"><br />
+
+                                <label>Country</label>
+                                <input type="text" ng-model="newPerson.Country"><br />
+
+                                <button type="button" class="btn btn-default" ng-click="addPeople(newPerson)">Add this</button>
+                            </div>
+                        </div>
+                        <!--<span>Present Column Visibility </span><input type="checkbox" ng-model="presentColumnVisibility">-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
