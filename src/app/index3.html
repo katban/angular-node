@@ -15,6 +15,7 @@
     <!-- App module -->
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="_directives/placeTable.js"></script>
+    <script type="text/javascript" src="_directives/placeForm.js"></script>
 </head>
 <body>
 
@@ -23,48 +24,7 @@
 
             <place-table></place-table>
 
-            <div class="panel panel-default col col-xs-6">
-                <div class="panel-heading">Add or edit Place</div>
-                <div ng-if="!updatModeFlag" class="panel-body">
-                    <label>Name</label>
-                    <input type="text" ng-model="newPlace.name"><br />
-
-                    <label>City</label>
-                    <input type="text" ng-model="newPlace.city"><br />
-
-                    <label>Street</label>
-                    <input type="text" ng-model="newPlace.street"><br />
-
-                    <label>Number</label>
-                    <input type="text" ng-model="newPlace.buildingNumber"><br />
-
-                    <label>Phone</label>
-                    <input type="text" ng-model="newPlace.phone"><br />
-
-
-                    <button type="button" class="btn btn-default" ng-click="add(newPlace)">Add this</button>
-                </div>
-                <div ng-if="updatModeFlag" class="panel-body">
-                    <label>Name</label>
-                    <input type="text" ng-model="placeToUpdate.name"><br />
-
-                    <label>City</label>
-                    <input type="text" ng-model="placeToUpdate.city"><br />
-
-                    <label>Street</label>
-                    <input type="text" ng-model="placeToUpdate.street"><br />
-
-                    <label>Number</label>
-                    <input type="text" ng-model="placeToUpdate.buildingNumber"><br />
-
-                    <label>Phone</label>
-                    <input type="text" ng-model="placeToUpdate.phone"><br />
-
-
-                    <button type="button" class="btn btn-default" ng-click="updatePlace(placeToUpdate)">Edit</button>
-                    <button type="button" class="btn btn-default" ng-click="cancelForm()">cancel</button>
-                </div>
-            </div>
+            <place-form></place-form>
         </div>
 
 

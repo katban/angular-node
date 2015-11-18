@@ -8,11 +8,12 @@ angular.module('Workshop')
                templateUrl: '_directives/place-table.html',
                transclude: true,    // w dyrekrywie chcemy przekazac jeszcze kawalek kodu
                scope: {}, // ma scopa
-               controller: function($scope, $http) {
+               controller: function($scope, $rootScope, $http) {
                    // variables
                    $scope.placesList = [];
                    var url = 'http://188.226.184.180:3000/api/';
 
+                   // methods
                    var getPlaces = function () {
                        $http.get(url + 'places')
                            .then(function (response) {
@@ -20,8 +21,18 @@ angular.module('Workshop')
                                //console.log(response);
                            });
                    };
+                   $scope.removeItem = function (item) {
+                       $http.delete(url + 'place/'+item._id).then(function (response) {
+                           getPlaces();
+                       });
+                   };
+
+                   $scope.updateMode = function (place) {
+                       $rootScope.$broadcast('updateMode', place);
+                   };
+
                    getPlaces();
-                   // methods
+
 
                }
            }

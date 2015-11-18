@@ -83,58 +83,16 @@
         $scope.place = [];
 
         var url = 'http://188.226.184.180:3000/api/';
-        $scope.placeToUpdate = {};
-        $scope.updatModeFlag = false;
 
 
-        $scope.newPlace = {name: '', city: '', street: '', phone: '', buildingNumber:''};
-        $scope.add = function(place) {
-            var flag = false;
-            angular.forEach($scope.placesList, function (placeFromList) {
-                if (place.name == placeFromList.name) {
-                    flag = true;
-                }
-            });
 
-            if (place.name && place.city && place.street && flag == false) {
-                var newPlace = angular.copy(place);
-                //$scope.placesList.push(newPlace);
-                $http.post(url + 'places', newPlace)
-                    .then(function (response) {
-                        //getPlaces();
-                    });
-            }
-        };
-
-        $scope.removeItem = function (item) {
-            $http.delete(url + 'place/'+item._id).then(function (response) {
-                //getPlaces();
-            });
-        };
 
         $scope.getPlace = function (id) {
-          $http.get(url + 'place/' + id)
-              .then(function (reponse) {
-                  return response.data;
-              })
+            $http.get(url + 'place/' + id)
+                .then(function (reponse) {
+                    return response.data;
+                })
         };
-
-        $scope.updatePlace = function (place) {
-            $http.put(url + 'place/' + place._id, place)
-                .then(function (response) {
-                    //getPlaces();
-                    $scope.updatModeFlag = false;
-                });
-        };
-
-        $scope.updateMode = function (place) {
-            $scope.placeToUpdate = place;
-            $scope.updatModeFlag = true;
-        };
-
-        $scope.cancelForm = function() {
-            $scope.updatModeFlag = false;
-        }
 
 
         //getPlaces();
