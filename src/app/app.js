@@ -140,6 +140,10 @@
             $scope.updatModeFlag = true;
         };
 
+        $scope.cancelForm = function() {
+            $scope.updatModeFlag = false;
+        }
+
 
         getPlaces();
     });
