@@ -83,6 +83,8 @@
         $scope.place = [];
 
         var url = 'http://188.226.184.180:3000/api/';
+        $scope.placeToUpdate = {};
+        $scope.updatModeFlag = false;
 
         var getPlaces = function () {
         $http.get(url + 'places')
@@ -124,6 +126,19 @@
                   return response.data;
               })
         };
+
+        $scope.updatePlace = function (place) {
+            $http.post(url + 'place/' + place._id, place)
+                .then(function (response) {
+                    getPlaces();
+                    $scope.updatModeFlag = false;
+                });
+        };
+
+        $scope.updateMode = function (place) {
+            $scope.placeToUpdate = place;
+            $scope.updatModeFlag = true;
+        }
 
 
         getPlaces();

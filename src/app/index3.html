@@ -43,6 +43,7 @@
                             <td>{{place.buildingName}} no. {{place.buildingNumber}}</td>
                             <td>{{place.phone}}</td>
                             <td><button ng-click="removeItem(place)"><small>(remove)</small></button></td>
+                            <td><button ng-click="updateMode(place)"><small>(edit)</small></button></td>
 
                         </tr>
                     </tbody>
@@ -50,8 +51,8 @@
             </div>
 
             <div class="panel panel-default col col-xs-6">
-                <div class="panel-heading">Add Place</div>
-                <div class="panel-body">
+                <div class="panel-heading">Add or edit Place</div>
+                <div ng-if="!updatModeFlag" class="panel-body">
                     <label>Name</label>
                     <input type="text" ng-model="newPlace.name"><br />
 
@@ -69,6 +70,25 @@
 
 
                     <button type="button" class="btn btn-default" ng-click="add(newPlace)">Add this</button>
+                </div>
+                <div ng-if="updatModeFlag" class="panel-body">
+                    <label>Name</label>
+                    <input type="text" ng-model="placeToUpdate.name"><br />
+
+                    <label>City</label>
+                    <input type="text" ng-model="placeToUpdate.city"><br />
+
+                    <label>Street</label>
+                    <input type="text" ng-model="placeToUpdate.street"><br />
+
+                    <label>Number</label>
+                    <input type="text" ng-model="placeToUpdate.buildingNumber"><br />
+
+                    <label>Phone</label>
+                    <input type="text" ng-model="placeToUpdate.phone"><br />
+
+
+                    <button type="button" class="btn btn-default" ng-click="updatePlace(placeToUpdate)">Edit</button>
                 </div>
             </div>
         </div>
