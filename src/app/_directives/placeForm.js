@@ -36,7 +36,7 @@ angular.module('Workshop')
                         //$scope.placesList.push(newPlace);
                         $http.post(url + 'places', newPlace)
                             .then(function (response) {
-                                //getPlaces();
+                                $rootScope.$broadcast('refreshPlacesList');
                             });
                     }
                 };
