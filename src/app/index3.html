@@ -14,41 +14,14 @@
 
     <!-- App module -->
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="_directives/placeTable.js"></script>
 </head>
 <body>
 
     <div class="container" ng-controller="PlacesController">
         <div class="row">
-            <div class="col col-xs-12">
-                <table class="table table-hover">
-                    <thead>
 
-                        <th>Name (id)</th>
-                        <th>City</th>
-                        <th>street</th>
-                        <th>Building</th>
-                        <th>Phone</th>
-                        <th>Option</th>
-                    </thead>
-
-                    <tbody>
-                        <tr ng-repeat="place in placesList">
-
-                            <td>
-                                {{place.name}}
-                                <small> ({{place._id}}) </small>
-                            </td>
-                            <td>{{place.city}}</td>
-                            <td>{{place.street}}</td>
-                            <td>{{place.buildingName}} no. {{place.buildingNumber}}</td>
-                            <td>{{place.phone}}</td>
-                            <td><button ng-click="removeItem(place)"><small>(remove)</small></button></td>
-                            <td><button ng-click="updateMode(place)"><small>(edit)</small></button></td>
-
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <place-table></place-table>
 
             <div class="panel panel-default col col-xs-6">
                 <div class="panel-heading">Add or edit Place</div>

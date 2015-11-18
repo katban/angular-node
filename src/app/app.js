@@ -86,14 +86,6 @@
         $scope.placeToUpdate = {};
         $scope.updatModeFlag = false;
 
-        var getPlaces = function () {
-        $http.get(url + 'places')
-            .then(function (response) {
-                $scope.placesList = response.data;
-                    //console.log(response);
-            });
-        };
-
 
         $scope.newPlace = {name: '', city: '', street: '', phone: '', buildingNumber:''};
         $scope.add = function(place) {
@@ -109,14 +101,14 @@
                 //$scope.placesList.push(newPlace);
                 $http.post(url + 'places', newPlace)
                     .then(function (response) {
-                        getPlaces();
+                        //getPlaces();
                     });
             }
         };
 
         $scope.removeItem = function (item) {
             $http.delete(url + 'place/'+item._id).then(function (response) {
-                getPlaces();
+                //getPlaces();
             });
         };
 
@@ -130,7 +122,7 @@
         $scope.updatePlace = function (place) {
             $http.put(url + 'place/' + place._id, place)
                 .then(function (response) {
-                    getPlaces();
+                    //getPlaces();
                     $scope.updatModeFlag = false;
                 });
         };
@@ -145,7 +137,7 @@
         }
 
 
-        getPlaces();
+        //getPlaces();
     });
 
 })();
