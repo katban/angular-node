@@ -80,12 +80,15 @@
     });
     //188.226.184.180
     app.controller('PlacesController', function($scope, $http) {
+        $scope.place = [];
+
+        var getPlaces = function () {
         $http.get('http://188.226.184.180:3000/api/places')
             .then(function (response) {
                 $scope.placesList = response.data;
-                //console.log(response);
+                    //console.log(response);
             });
-
+        };
 
 
         $scope.newPlace = {name: '', city: '', street: '', phone: '', buildingNumber:''}
@@ -100,9 +103,9 @@
             if (place.name && place.city && place.street && flag == false) {
                 var newPlace = angular.copy(place);
                 //$scope.placesList.push(newPlace);
-                $http.post('http://188.226.184.180:3000/api/places', newPlace, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+                $http.post('http://188.226.184.180:3000/api/places', newPlace)
                     .then(function (response) {
-                        console.log(response);
+                        getPlaces();
                     });
             }
         }
