@@ -95,7 +95,7 @@
         };
 
 
-        $scope.newPlace = {name: '', city: '', street: '', phone: '', buildingNumber:''}
+        $scope.newPlace = {name: '', city: '', street: '', phone: '', buildingNumber:''};
         $scope.add = function(place) {
             var flag = false;
             angular.forEach($scope.placesList, function (placeFromList) {
@@ -128,7 +128,7 @@
         };
 
         $scope.updatePlace = function (place) {
-            $http.post(url + 'place/' + place._id, place)
+            $http.put(url + 'place/' + place._id, place)
                 .then(function (response) {
                     getPlaces();
                     $scope.updatModeFlag = false;
@@ -138,7 +138,7 @@
         $scope.updateMode = function (place) {
             $scope.placeToUpdate = place;
             $scope.updatModeFlag = true;
-        }
+        };
 
 
         getPlaces();
