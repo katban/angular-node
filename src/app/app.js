@@ -3,7 +3,7 @@
     var app = angular.module('Workshop', ['ui.router']);
 
     app.config(function($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/view1');
+        $urlRouterProvider.otherwise('/view3');
 
         $stateProvider
             .state('view1', {
@@ -97,12 +97,14 @@
 
     });
     //188.226.184.180
-    app.controller('PlacesController', function($scope, $http) {
+    app.controller('PlacesController', function($scope, $rootScope, $http) {
         $scope.place = [];
 
         var url = 'http://188.226.184.180:3000/api/';
 
-
+        $rootScope.$on('loggedIn', function() {
+            $scope.loggedIn = true;
+        })
 
 
         $scope.getPlace = function (id) {
