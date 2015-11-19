@@ -22,6 +22,41 @@ angular.module('Workshop')
                     $scope.updatModeFlag = true;
                 });
 
+
+                $scope.cities = [
+                    {
+                        name: 'Gdańsk',
+                        state: 'Pomorskie',
+                        hasTram: true
+                    },
+                    {
+                        name: 'Gdynia',
+                        state: 'Pomorskie',
+                        hasTram: false
+                    },
+                    {
+                        name: 'Grudziądz',
+                        state: 'Kujawsko-Pomorskie',
+                        hasTram: true
+                    },
+                    {
+                        name: 'Warszawa',
+                        state: 'Mazowieckie',
+                        hasTram: true
+                    },
+                    {
+                        name: 'Toruń',
+                        state: 'Kujawsko-Pomorskie',
+                        hasTram: false
+                    },
+                    {
+                        name: 'Kraków',
+                        state: 'Małopolskie',
+                        hasTram: true
+                    }
+                ];
+
+
                 // methods
                 $scope.add = function(place) {
                     var flag = false;

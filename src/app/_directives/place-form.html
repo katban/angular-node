@@ -16,6 +16,12 @@
         <label>Phone</label>
         <input type="text" ng-model="newPlace.phone"><br />
 
+        <div class="form-group">
+            <label>City</label>
+            <select class="form-control" ng-model="newPlace.city"
+                    ng-options="city.name as city.name group by city.state disable when !city.hasTram for city in cities"></select>
+        </div>
+
 
         <button type="button" class="btn btn-default" ng-click="add(newPlace)">Add this</button>
     </div>
@@ -31,6 +37,8 @@
 
         <label>Number</label>
         <input type="text" ng-model="placeToUpdate.buildingNumber"><br />
+
+
 
         <label>Phone</label>
         <input type="text" ng-model="placeToUpdate.phone"><br />
