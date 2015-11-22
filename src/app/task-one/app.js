@@ -4,7 +4,7 @@
 (function(){
     var app = angular.module('Workshop', []);
 
-    app.controller('BaseController', function ($scope) {
+    app.controller('BaseController', function ($scope, $http) {
         $scope.person = {
             "fname":"Aely",
             "lname":"Ruback",
@@ -18,6 +18,10 @@
                 "zip":"99380"
             }
         }
+        $http.get('http://www.filltext.com/?rows=10&fname={firstName}&lname={lastName}&company={business}&phone={phone}&email={email}&address={addressObject}')
+            .then(function(response) {
+                return $scope.peopleList = response.data;
+            })
 
     });
 })();
