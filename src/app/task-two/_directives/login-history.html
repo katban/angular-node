@@ -4,7 +4,7 @@
             Login History
         </div>
 
-        <div class="panel panel-body">
+        <div class="panel panel-body" ng-show="loginList.length">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -22,7 +22,10 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
 
+        <div class="panel-body" ng-show="!loginList.length">
+            <div class="text-center"><span class="text-muted">No data available</span></div>
         </div>
     </div>
 </div>
