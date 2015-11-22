@@ -5,11 +5,23 @@
         </div>
 
         <div class="panel panel-body">
-            <ul class="list-group">
-                <li class="list-group-item" ng-repeat="item in loginList">
-                    {{item.user}} - {{item.ip}} - {{item.lastLogin}}
-                </li>
-            </ul>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="info">User</th>
+                        <th>IP</th>
+                        <th>Date of last login</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="" ng-repeat="item in loginList">
+                        <td class="col-xs-4 info">{{item.user}}</td>
+                        <td class="col-xs-5">{{item.ip}}</td>
+                        <td class="col-xs-3">{{item.lastLogin}}</td>
+                    </tr>
+                </tbody>
+            </table>
 
         </div>
     </div>
