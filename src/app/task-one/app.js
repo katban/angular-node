@@ -28,5 +28,5 @@
             $scope.personDetails = person;
         }
 
-    });
-})()
+    })
+})();

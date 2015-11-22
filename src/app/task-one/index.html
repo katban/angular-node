@@ -41,7 +41,7 @@
                 <div class="panel-heading">Details</div>
                 <div class="panel-body">
 
-                    <div class="row" ng-model="personDetails">
+                    <div class="row" ng-show="personDetails">
                         <div class="col-xs-6">
                             <address>
                                 <p><strong>{{personDetails.company}}</strong></p>
@@ -64,7 +64,33 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-xs-8">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">Mock data</div>
+                <div class="panel panel-body">
+                    <div class="row" ng-model="person">
+                        <div class="col-xs-4">
+                            {{person.fname}}
+                            {{person.lname}}<br />
+                            <abbr title="Phone">Phone:</abbr> {{person.phone}}<br/>
+                            <a href="#">{{persons.email}}</a>
+                        </div>
+                        <div class="col-xs-8">
+                            <address>
+                                <span class="glyphicon glyphicon-envelope"></span>
+                                {{person.address.city}} ({{person.address.state}})<br/>
+                                {{person.address.streetAddress}} / {{person.address.zip}}
+                            </address>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
+
+
 </body>
 </html>
