@@ -28,7 +28,7 @@
                 <div class="panel-heading">People List</div>
                 <div class="panel-body">
                     <ul class="list-group">
-                        <li class="list-group-item"  ng-repeat="man in peopleList">
+                        <li class="list-group-item" ng-repeat="man in peopleList" ng-click="showCard(man)">
                             {{man.fname}} {{man.lname}}
                         </li>
                     </ul>
@@ -41,23 +41,23 @@
                 <div class="panel-heading">Details</div>
                 <div class="panel-body">
 
-                    <div class="row" ng-model="person">
+                    <div class="row" ng-model="personDetails">
                         <div class="col-xs-6">
                             <address>
-                                <p><strong>{{person.company}}</strong></p>
-                                <abbr title="Phone">Phone:</abbr> {{person.phone}}<br/>
-                                <a href="#">{{person.email}}</a>
+                                <p><strong>{{personDetails.company}}</strong></p>
+                                <abbr title="Phone">Phone:</abbr> {{personDetails.phone}}<br/>
+                                <a href="#">{{personDetails.email}}</a>
                             </address>
                             <address>
                                 <span class="glyphicon glyphicon-envelope"></span>
-                                {{person.address.city}} ({{person.address.state}})<br/>
-                                {{person.address.streetAddress}} / {{person.address.zip}}
+                                {{personDetails.address.city}} ({{personDetails.address.state}})<br/>
+                                {{personDetails.address.streetAddress}} / {{personDetails.address.zip}}
                             </address>
 
                         </div>
                         <div class="col-xs-6 text-right">
-                            {{person.fname}}
-                            {{person.lname}}
+                            {{personDetails.fname}}
+                            {{personDetails.lname}}
                         </div>
 
                     </div>

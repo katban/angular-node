@@ -17,11 +17,16 @@
                 "state":"TX",
                 "zip":"99380"
             }
-        }
+        };
+
         $http.get('http://www.filltext.com/?rows=10&fname={firstName}&lname={lastName}&company={business}&phone={phone}&email={email}&address={addressObject}')
             .then(function(response) {
                 return $scope.peopleList = response.data;
-            })
+            });
+
+        $scope.showCard = function (person) {
+            $scope.personDetails = person;
+        }
 
     });
-})();
+})()
