@@ -22,8 +22,58 @@
         <h1 class="text-muted">Task</h1>
     </div>
 
-    <div>
-        Content
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="panel panel-success">
+                <div class="panel panel-heading">All collection:</div>
+                <div class="panel panel-body">
+                    <select class="form-control" ng-model="vehicleOne"
+                            ng-options="vehicle.name for vehicle in vehicles">{{vehicleOne}}
+                    </select>
+                </div>
+                <div class="panel-body" ng-show="vehicleOne">
+                    <p><strong>{{vehicleOne.name}}</strong></p>
+                    <p>Type: {{vehicleOne.name}}</p>
+                    <p>Available: {{vehicleOne.isAvailable}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-4">
+            <div class="panel panel-info">
+                <div class="panel panel-heading">
+                    Group by category:
+                </div>
+                <div class="panel panel-body">
+                    <select class="form-control" ng-model="vehicleCategory"
+                            ng-options="vehicle.name group by vehicle.category for vehicle in vehicles">{{vehicleCategory}}
+                    </select>
+                </div>
+                <div class="panel-body" ng-show="vehicleCategory">
+                    <p><strong>{{vehicleCategory.name}}</strong></p>
+                    <p>Type: {{vehicleCategory.name}}</p>
+                    <p>Available: {{vehicleCategory.isAvailable}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-4">
+            <div class="panel panel-danger">
+                <div class="panel panel-heading">
+                    with not Available:
+                </div>
+                <div class="panel panel-body">
+                    <select class="form-control" ng-model="vehicleAvailable"
+                            ng-options="vehicle.name group by vehicle.category disable when !vehicle.isAvailable for vehicle in vehicles">{{vehicleAvailable}}
+                    </select>
+                </div>
+                <div class="panel-body" ng-show="vehicleAvailable">
+                    <p><strong>{{vehicleAvailable.name}}</strong></p>
+                    <p>Type: {{vehicleAvailable.name}}</p>
+                    <p>Available: {{vehicleAvailable.isAvailable}}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
