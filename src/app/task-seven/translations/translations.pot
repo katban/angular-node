@@ -1,0 +1,17 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: src/app/app.js:8
+msgid "Translate me please!"
+msgstr ""
+
+#: src/app/index.html:31
+msgid "Translate me!"
+msgstr ""
+
+#: src/app/index.html:32
+msgid "Translate me... yah"
+msgstr ""
